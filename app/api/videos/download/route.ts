@@ -18,11 +18,11 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Get the video content
-    const content = await openai.videos.content(videoId, { variant });
+    // Get the video content using the correct method
+    const response = await openai.videos.downloadContent(videoId, { variant });
     
     // Convert to array buffer
-    const arrayBuffer = await content.arrayBuffer();
+    const arrayBuffer = await response.arrayBuffer();
     
     // Determine content type based on variant
     let contentType = 'video/mp4';

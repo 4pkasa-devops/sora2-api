@@ -17,7 +17,7 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    await openai.videos.del(videoId);
+    await openai.videos.delete(videoId);
 
     return NextResponse.json({ success: true, message: 'Video deleted successfully' });
   } catch (error: any) {
